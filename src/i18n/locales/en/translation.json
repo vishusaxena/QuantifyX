@@ -1,0 +1,463 @@
+{
+  "english": "English",
+  "german": "German",
+  "user": "User",
+  "profile": "Profile",
+  "resetPassword": "Reset Password",
+  "logout": "Logout",
+  "brandName": "QuantifyX",
+  "dashboard": "Dashboard",
+  "userMaster": "User Master",
+  "teamMaster": "Team Master",
+  "orderMaster": "Order Master",
+  "taskManager": "Task Manager",
+  "light": "Light",
+  "dark": "Dark",
+  "lightDark": "Light Dark",
+  "menu": "Menu",
+
+  "export": "Export",
+  "addUser": "Add User",
+  "addTeam": "Add Team",
+  "create": "Create",
+  "master": "Master",
+  "welcome": "Welcome",
+
+  "add_user": "Add User",
+  "edit_user": "Edit User",
+
+  "firstname": "First Name",
+  "lastname": "Last Name",
+  "username": "Username",
+  "email": "Email",
+  "phone": "Phone",
+  "street": "Street",
+  "city": "City",
+  "zipcode": "Zip Code",
+
+  "reset": "Reset",
+  "save": "Save",
+  "update": "Update",
+
+  "error_firstname_required": "First name is required",
+  "error_lastname_required": "Last name is required",
+  "error_username_required": "Username is required",
+
+  "error_email_required": "Email is required",
+  "error_email_invalid": "Enter a valid email",
+
+  "error_phone_required": "Phone number is required",
+  "error_phone_invalid": "Invalid phone number",
+
+  "error_street_required": "Street is required",
+  "error_city_required": "City is required",
+
+  "error_zip_required": "Zipcode is required",
+  "error_zip_invalid": "Enter a valid zipcode",
+  "Personal Details": "Personal Details",
+  "Educational Details": "Education Details",
+  "Communication Details": "Communication Details",
+  "Employment Details": "Employment Details",
+
+  "title": "Are you sure you want to delete?",
+  "cancel": "Cancel",
+  "delete": "Delete",
+
+  "totalUsers": "Total Users",
+  "totalTeams": "Total Teams",
+  "activeUsers": "Active Users",
+
+  "Date-wise User Registration Graph": "Date-wise User Registration Graph",
+  "usersRegistered": "Users Registered",
+
+  "passwordReset": {
+    "back": "Back",
+    "resetPasswordTitle": "Reset Password",
+    "newPassword": "New Password",
+    "newPasswordPlaceholder": "Enter new password",
+    "confirmNewPassword": "Confirm New Password",
+    "confirmNewPasswordPlaceholder": "Re-enter new password",
+    "passwordStrength": "Password Strength",
+    "passwordsMatch": "Passwords match",
+    "passwordsDoNotMatch": "Passwords do not match",
+    "resetButton": "Reset Password",
+
+    "errors": {
+      "newPasswordRequired": "New password is required",
+      "confirmPasswordRequired": "Please confirm your password",
+      "passwordsNotMatch": "Passwords do not match!",
+      "noUserFound": "No registered user found!"
+    },
+
+    "toast": {
+      "success": "Password updated successfully!"
+    },
+
+    "requirementsTitle": "Password Requirements",
+    "req1": "Minimum 8 characters",
+    "req2": "At least one uppercase letter (A–Z)",
+    "req3": "At least one lowercase letter (a–z)",
+    "req4": "At least one number (0–9)",
+    "req5": "At least one special character (@ $ ! % * ? &)"
+  },
+
+  "teamModal": {
+    "addTeam": "Add Team",
+    "editTeam": "Edit Team",
+
+    "teamName": "Team Name",
+    "createdBy": "Created By",
+    "createdDate": "Created Date",
+    "modifiedBy": "Modified By",
+    "modifiedDate": "Modified Date",
+    "active": "Active",
+
+    "reset": "Reset",
+    "save": "Save",
+    "update": "Update",
+
+    "errors": {
+      "teamNameRequired": "Team name is required",
+      "required": "Required"
+    }
+  },
+  "button": {
+    "add": "Add",
+    "save": "Save",
+    "update": "Update",
+    "reset": "Reset",
+    "next": "Next"
+  },
+  "loginPage": {
+    "title": "QuantifyX",
+    "welcomeHeadline": "Hello\nWelcome Back",
+    "welcomeText": "Hey, welcome back to QuantifyX",
+    "invalidCredentials": "Invalid credentials",
+    "emailId": "Email ID",
+    "password": "Password",
+    "loginButton": "Login",
+    "dontHaveAccount": "Don't have an account?",
+    "createAccount": "Create Account",
+    "forgotPassword": "Forgot password?",
+    "emailRequired": "Email is required",
+    "invalidEmailFormat": "Invalid email format",
+    "passwordRequired": "Password is required",
+    "loginSuccess": "Login Successful!"
+  },
+  "registerPage": {
+    "title": "Create your account",
+    "labelName": "Name",
+    "labelEmail": "Email ID",
+    "labelPhone": "Phone No.",
+    "labelPassword": "Password",
+    "labelConfirmPassword": "Confirm Password",
+
+    "placeholderName": "Name",
+    "placeholderEmail": "Email ID",
+    "placeholderPhone": "Phone No.",
+    "placeholderPassword": "Password",
+    "placeholderConfirmPassword": "Confirm Password",
+
+    "userExists": "User already exists",
+
+    "errNameRequired": "Name is required",
+    "errEmailRequired": "Email is required",
+    "errEmailInvalid": "Invalid email format",
+    "errPhoneRequired": "Phone number is required",
+    "errPhoneInvalid": "Invalid phone number",
+    "errPasswordRequired": "Password is required",
+    "errConfirmRequired": "Confirm your password",
+    "errPasswordMismatch": "Passwords do not match",
+
+    "passwordStrengthStrong": "Strong",
+    "passwordStrengthMedium": "Medium",
+    "passwordStrengthWeak": "Weak",
+    "passwordStrengthLabel": "Password Strength",
+
+    "passwordsMatch": "Passwords match",
+
+    "buttonSignup": "Sign Up",
+    "alreadyHaveAccount": "Already have an account?",
+    "signin": "Sign in",
+
+    "successRegister": "User registered successfully!"
+  },
+
+  "profilePage": {
+    "profile": {
+      "name": "Name",
+      "email": "Email",
+      "dob": "Date of Birth",
+      "gender": "Gender",
+      "selectGender": "Select gender",
+      "male": "Male",
+      "female": "Female",
+      "other": "Other",
+      "phone": "Phone Number",
+      "social": "Social Link",
+      "nameError": "Name is Required",
+      "emailError": "Email is Required",
+      "emailInvalid": "Enter a valid email",
+      "dobError": "Date of birth is Required",
+      "genderError": "Select gender",
+      "phoneError": "Phone number is Required",
+      "phoneInvalid": "Enter valid Indian phone number",
+      "socialError": "Social Links Required",
+      "socialInvalid": "Enter a valid URL (https://...)",
+      "profilePicError": "Profile image Required",
+      "aboutError": "About is required",
+      "about": "About",
+      "placeholder": {
+        "name": "Enter your name",
+        "email": "Enter your email",
+        "dob": "Select date of birth",
+        "phone": "Enter your phone number",
+        "social": "LinkedIn, GitHub, Portfolio…",
+        "about": "Tell us about yourself (max 250 characters)"
+      }
+    },
+    "education": {
+      "qualification": "Qualification",
+      "selectQualification": "Select qualification",
+      "10th": "10th",
+      "12th": "12th",
+      "Graduation": "Graduation",
+      "college": "College",
+      "startDate": "Start Date",
+      "endDate": "End Date",
+      "pursuing": "Currently Pursuing",
+      "percentage": "Percentage",
+      "qualificationError": "Qualification is required",
+      "collegeError": "College name is required",
+      "startDateError": "Start date is required",
+      "endDateError": "End date is required",
+      "marksError": "Marks are required",
+      "marksInvalid": "Marks must be a number",
+      "marksRangeError": "Marks must be between 1 and 100",
+      "marksDecimalError": "Marks can have up to two decimal places",
+      "placeholder": {
+        "college": "Enter college name",
+        "startDate": "Select start date",
+        "endDate": "Select end date",
+        "percentage": "Enter your percentage (e.g., 85)"
+      }
+    },
+    "address": {
+      "currentAddress": "Current Address",
+      "city": "City",
+      "state": "State",
+      "country": "Country",
+      "zipCode": "Zip Code",
+      "sameAsCurrent": "Permanent address same as current?",
+      "permanentAddress": "Permanent Address",
+      "currentAddressError": "Current address is required",
+      "cityError": "City is required",
+      "stateError": "State is required",
+      "countryError": "Country is required",
+      "zipCodeError": "Zipcode is required",
+      "zipCodeInvalid": "Enter a valid zipcode",
+      "permanentAddressError": "Permanent address is required",
+      "placeholder": {
+        "currentAddress": "Enter your current address",
+        "city": "Enter your city",
+        "state": "Enter your state",
+        "country": "Enter your country",
+        "zipCode": "Enter zipcode",
+        "permanentAddress": "Enter your permanent address"
+      }
+    },
+    "employment": {
+      "jobTitle": "Job Title",
+      "company": "Company",
+      "joiningDate": "Joining Date",
+      "leaveDate": "Leave Date",
+      "isEmployee": "Currently employee",
+      "description": "Description",
+      "jobTitleError": "Job title is required",
+      "companyError": "Company name is required",
+      "joiningDateError": "Joining date is required",
+      "leaveDateError": "Leave date is required",
+      "aboutError": "About work is required",
+      "placeholder": {
+        "jobTitle": "Enter job title",
+        "company": "Enter company name",
+        "joiningDate": "Select joining date",
+        "leaveDate": "Select leave date",
+        "description": "Tell about your experience (max 250 characters)"
+      }
+    }
+  },
+  "exportConfirmModalPage": {
+    "title": "Confirm Download",
+    "text": "Do you want to download this file?",
+    "confirm": "Yes, Download!",
+    "cancel": "Cancel"
+  },
+  "table": {
+    "totalRecords": "Total Records",
+    "selectedRows": "Selected Rows",
+    "selectPlaceholder": "Please select",
+    "bulkDelete": "Bulk Delete",
+    "ok": "Ok",
+    "errorSelectAction": "Please select an action",
+    "errorSelectRow": "Please select at least one row",
+    "noDataAvailable": " No data available",
+    "prev": "Prev",
+    "next": "Next",
+    "All": "All",
+    "Actions": "Actions",
+    "10Page": "10 / page",
+    "20Page": "20 / page",
+    "50Page": "50 / page",
+    "email": "Email",
+    "username": "Username",
+    "firstname": "First Name",
+    "lastname": "Last Name",
+    "phone": "Phone No",
+    "city": "City",
+    "street": "Street",
+    "zipcode": "Zipcode",
+    "Team Name": "Team Name",
+    "Created By": "Created By",
+    "Created Date": "Created Date",
+    "Modified By": "Modified By",
+    "Modified Date": "Modified Date",
+    "Active": "Active",
+    "AwbNo": "AWB Number",
+    "PacketStatus": "Packet Status",
+    "BookingDate": "Booking Date",
+    "ConsignorCode": "Consignor Code",
+    "ConsignorContactPerson": "Consignor Contact Person",
+    "ConsignorPhoneNo": "Consignor Phone Number",
+    "ConsignorAddressLine1": "Consignor Address Line 1",
+    "ConsignorAddressLine2": "Consignor Address Line 2",
+    "ConsignorAddressLine3": "Consignor Address Line 3",
+    "ConsignorCountry": "Consignor Country",
+    "ConsignorState": "Consignor State",
+    "ConsignorPincode": "Consignor Pincode",
+    "ConsignorCity": "Consignor City",
+
+    "ConsigneeName": "Consignee Name",
+    "ConsigneeContactPerson": "Consignee Contact Person",
+    "ConsigneePhoneNo": "Consignee Phone Number",
+    "ConsigneeAddressLine1": "Consignee Address Line 1",
+    "ConsigneeAddressLine2": "Consignee Address Line 2",
+    "ConsigneeAddressLine3": "Consignee Address Line 3",
+    "ConsigneeCountry": "Consignee Country",
+    "ConsigneePincode": "Consignee Pincode",
+    "ConsigneeState": "Consignee State",
+    "SrNo": "Sr No"
+  },
+  "deletedLog": {
+    "viewDeletedEntries": "View Deleted Entries",
+    "title": "Deleted Entries Log",
+    "awbNo": "AwbNo",
+    "entries_deleted_successfully": "Entries deleted successfully"
+  },
+  "error_messages": {
+    "failed_to_add_user": "Failed to add user",
+    "user_added_successfully": "User added successfully",
+    "failed_to_update_user": "Failed to update user",
+    "user_updated_successfully": "User updated successfully",
+    "failed_to_delete_user": "Failed to delete user",
+    "user_deleted_successfully": "User deleted successfully"
+  },
+  "forgotPassword": {
+    "forgot_password": "Forgot Password",
+    "reset_password": "Reset Password",
+    "enter_registered_email": "Enter your registered email address",
+    "strength": "Strength",
+    "new_password": "New Password",
+    "confirm_password": "Confirm Password",
+    "passwords_match": "Passwords match",
+    "passwords_do_not_match": "Passwords do not match"
+  },
+  "Email": "Email",
+  "Username": "Username",
+  "First name": "First name",
+  "Last name": "Last name",
+  "Phone No": "Phone No",
+  "City": "City",
+  "Street": "Street",
+  "Zipcode": "Zipcode",
+  "UserPreview": {
+    "about": "About",
+    "education": "Education",
+    "employment": "Employment",
+    "download": "Download",
+    "back": "Back",
+    "noExperienceAdded": "No experience added yet.",
+    "noEducationAdded": "No education added yet.",
+    "workExperience": "Work Experience"
+  },
+  "PDFResume": {
+    "about": "About",
+    "education": "Education",
+    "workExperience": "Work Experience",
+    "present": "Present"
+  },
+  "notFoundPage": {
+    "notFound": "Page not found",
+    "goToDashboard": "Go to Dashboard"
+  },
+  "ProfileCard": {
+    "preview": "Preview"
+  },
+  "UserDetailsCard": {
+    "userDetails": "User Details",
+    "education": "Education",
+    "employment": "Employment",
+    "college": "College",
+    "startDate": "Start Date",
+    "endDate": "End Date",
+    "status": "Status",
+    "pursuing": "Pursuing",
+    "completed": "Completed",
+    "percentage": "Percentage",
+    "company": "Company",
+    "duration": "Duration",
+    "present": "Present",
+    "experience": "Experience"
+  },
+
+  "addTask": "Add Task",
+  "allTasks": "All Tasks",
+  "taskName": "Task Name",
+  "enterTaskName": "Enter task name",
+  "priority": "Priority",
+  "selectPriority": "Select Priority",
+  "high": "High",
+  "medium": "Medium",
+  "low": "Low",
+  "startDate": "Start Date",
+  "endDate": "End Date",
+  "timeTaken": "Time Taken (hrs)",
+  "remarks": "Task Description",
+  "enterTimeInHours": "Enter time in hours",
+  "assignedBy": "Assigned By",
+  "taskDescription": "Enter task description",
+
+  "taskNameRequired": "Task Name is required",
+  "priorityRequired": "Priority is required",
+  "startDateRequired": "Start Date is required",
+  "endDateRequired": "End Date is required",
+  "timeTakenRequired": "Time Taken is required",
+  "remarksRequired": "Task description in required",
+
+  "taskAdded": "Task added successfully",
+  "taskUpdated": "Task updated successfully",
+
+  "newTask": "New Task",
+  "noData": "No Task available",
+  "InComplete": "In complete",
+  "InProgress": "In progress",
+  "completed": "Completed",
+  "taskDetails": "Task Details",
+  "Activities": "Activities",
+  "date": "Date",
+
+  "Are you sure you want to delete it": "Are you sure you want to delete it ?",
+  "Are you confirm you want to move it": "Are you confirm you want to move it ?",
+
+  "remark": "Remarks"
+}
