@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import { CircleUserRound } from "lucide-react";
+import { CircleUserRound, Menu } from "lucide-react";
 import { usedata } from "../context/dataContext";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -29,10 +29,10 @@ const Navbar = ({ setShowMobileMenu }) => {
         shadow-md p-4 light:bg-linear-to-r light:from-[#3b82f6] light:to-[#2563eb] light:text-white h-16 backdrop-blur-md"
       >
         <span
-          className="lg:hidden inline w-[20%] cursor-pointer light:text-white dark:text-white blue:text-[#ffffff] text-2xl font-bold"
+          className="lg:hidden inline w-[20%] cursor-pointer  light:text-white dark:text-white blue:text-[#ffffff] text-2xl font-bold"
           onClick={() => setShowMobileMenu(true)}
         >
-          ☰
+          <Menu />
         </span>
 
         <div className="flex gap-4 items-center w-full justify-end">

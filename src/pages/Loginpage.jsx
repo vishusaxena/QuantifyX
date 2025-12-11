@@ -100,7 +100,7 @@ const Loginpage = () => {
 
   return (
     <div className="w-screen h-screen flex light:bg-white dark:bg-[#0a0f24] blue:bg-[#121212] justify-center">
-      <div className="lg:w-[50%] sm:w-full flex flex-col justify-center px-20 light:text-black dark:text-gray-300 blue:text-white">
+      <div className="lg:w-[50%] md:w-[50%] w-full flex flex-col justify-center lg:px-20 md:px-20 px-3  light:text-black dark:text-gray-300 blue:text-white">
         <h2 className="text-xl font-bold mb-8 dark:text-gray-200 blue:text-white">
           {t("loginPage.title")}
         </h2>
@@ -120,7 +120,7 @@ const Loginpage = () => {
         )}
 
         {inputsField.map((item, i) => (
-          <div key={i} className="w-[90%] mt-3 relative">
+          <div key={i} className=" md:w-[90%] lg:w-[90%] mt-3 relative">
             <input
               className="w-full py-3 px-3 mb-3 rounded-xl border-2 light:border-blue-400 
                          light:text-black dark:text-gray-200 
@@ -167,7 +167,7 @@ const Loginpage = () => {
 
         <button
           className="mt-6 light:bg-linear-to-r light:from-[#3b82f6] light:to-[#2563eb] light:text-white py-2 px-4 font-semibold 
-                     rounded-xl w-[90%] text-lg
+                     rounded-xl md:w-[90%] lg:w-[90%] text-lg
                      light:hover:bg-indigo-700
                      blue:bg-[#f7f75b] blue:hover:bg-[#f2f21b] blue:text-black"
           onClick={handleLogIn}

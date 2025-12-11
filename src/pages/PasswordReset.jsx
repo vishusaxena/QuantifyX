@@ -5,7 +5,7 @@ import CryptoJS from "crypto-js";
 import { useNavigate } from "react-router-dom";
 import { MoveLeft } from "lucide-react";
 import { toast } from "react-toastify";
-import { useTranslation } from "react-i18next"; // ✅ translation hook
+import { useTranslation } from "react-i18next";
 
 const PasswordReset = () => {
   const { t } = useTranslation();
@@ -102,21 +102,19 @@ const PasswordReset = () => {
 
   return (
     <div className="flex flex-col">
-      {/* Back Button */}
-      <div className="ml-15 dark:text-white blue:text-white">
+      <div className="ml-15 mt-3 dark:text-white blue:text-white">
         <button className="flex gap-2" onClick={() => navigate("/")}>
           <MoveLeft /> <span>{t("passwordReset.back")}</span>
         </button>
       </div>
 
-      <div className="w-full flex justify-start items-center pl-16 h-full py-10">
-        <div className="w-[40%] flex flex-col gap-4 dark:text-white blue:text-white">
+      <div className="w-full flex lg:flex-row md:flex-row flex-col justify-start items-center md:pl-16 lg:pl-16 px-5 h-full py-10">
+        <div className="lg:w-[40%] md:w-[40%] w-full flex flex-col gap-4 dark:text-white blue:text-white">
           <h3 className="text-xl font-semibold">
             {t("passwordReset.resetPasswordTitle")}
           </h3>
 
           <div className="flex flex-col gap-3">
-            {/* New password */}
             <div>
               <InputComponent
                 label={t("passwordReset.newPassword")}
@@ -153,7 +151,6 @@ const PasswordReset = () => {
               )}
             </div>
 
-            {/* Confirm Password */}
             <div>
               <InputComponent
                 label={t("passwordReset.confirmNewPassword")}
@@ -201,7 +198,6 @@ const PasswordReset = () => {
               )}
             </div>
 
-            {/* Reset button */}
             <button
               onClick={handleResetPassword}
               className="rounded-md bg-blue-500 py-2 text-white hover:bg-blue-600 transition"
@@ -212,12 +208,10 @@ const PasswordReset = () => {
           </div>
         </div>
 
-        {/* Requirements Box */}
-        <div className="ml-15 p-5 light:bg-gray-100 dark:bg-[#141b34] blue:bg-[#282828] light:text-black blue:text-white dark:text-gray-200 rounded-lg shadow w-[45%]">
-          <h4 className="text-lg font-semibold mb-2">
+        <div className="lg:ml-15 md:ml-15 p-5 light:bg-gray-100 dark:bg-[#141b34] blue:bg-[#282828] light:text-black blue:text-white dark:text-gray-200 rounded-lg shadow lg:w-[45%] md:w-[45%] w-full">
+          <span className="md:text-lg lg:text-lg text-sm font-semibold mb-2">
             {t("passwordReset.requirementsTitle")}
-          </h4>
-
+          </span>
           <ul className="text-sm text-gray-700 leading-6 blue:text-white dark:text-gray-200">
             <li>• {t("passwordReset.req1")}</li>
             <li>• {t("passwordReset.req2")}</li>

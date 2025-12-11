@@ -157,7 +157,7 @@ const RegisterPage = () => {
 
   return (
     <div className="w-screen h-screen flex justify-center items-center dark:bg-[#0a0f24] blue:bg-[#121212]">
-      <div className="w-[80%] flex p-3">
+      <div className="md:w-[80%] lg:w-[80%] flex p-3">
         <div className="hidden md:flex justify-center w-[30%] bg-linear-to-br from-indigo-500 to-indigo-600 text-white">
           <img src={logo} alt="login" className="w-full drop-shadow-2xl" />
         </div>

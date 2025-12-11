@@ -519,12 +519,14 @@ export function TaskDetailsModal({ selectedTask, onClose, t }) {
                   <div key={i} className="relative  flex gap-2">
                     <div className="flex flex-col  items-center">
                       <div
-                        className={`bg-blue-800 w-2  h-3 mt-2 rounded-full flex `}
+                        className={`light:bg-blue-800 blue:bg-[#b7f764] dark:bg-blue-600  w-2  h-3 mt-2 rounded-full flex `}
                       ></div>
 
                       <hr
                         className={` ${
-                          isLast ? "bg-white" : "bg-gray-500"
+                          isLast
+                            ? "bg-white"
+                            : "light:bg-gray-500 blue:bg-[#b7f764] dark:bg-blue-600"
                         }  h-full w-0.5 mt-2`}
                         style={{ margin: 0, padding: 0 }}
                       ></hr>

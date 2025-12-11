@@ -1,4 +1,4 @@
-import { Search } from "lucide-react";
+import { CircleCheck, CircleX, RotateCcw, Search } from "lucide-react";
 import { useEffect, useState } from "react";
 
 import { RiDraggable } from "react-icons/ri";
@@ -100,17 +100,20 @@ const Modal = ({ isOpen, onClose, data, id, onUpdateColumns }) => {
 
   const column = isSearching ? searchedList : hiddenColumns;
   return (
-    <div className="fixed inset-0 bg-black/50 h-screen w-screen flex justify-center items-center z-999 ">
-      <div className="w-[700px] h-[500px] bg-white rounded-2xl px-4 py-2  ">
+    <div className="fixed inset-0 bg-black/50 h-screen w-screen flex justify-center backdrop-blur-xs items-center z-999 ">
+      <div className="w-[700px] h-[500px] light:bg-white rounded-2xl px-4 py-2 border  dark:border-gray-200 dark:bg-[#0a0f24] blue:bg-[#121212] blue:border-white ">
         <div className="flex flex-col justify-around  h-full">
           <div className="h-[80%] flex justify-between ">
             <div className="flex flex-col w-[48%] justify-between ">
               <div className="h-[10%] ">
-                <div className="bg-white rounded-lg shadow-sm border px-2 py-1 h-full flex items-center gap-2">
-                  <Search size={18} />
+                <div className="light:bg-white dark:bg-[#141b34] blue:bg-[#282828] rounded-lg shadow-sm border px-2 py-1 h-full flex items-center gap-2">
+                  <Search
+                    size={18}
+                    className="dark:text-white blue:text-white"
+                  />
                   <input
                     type="text"
-                    className="w-full focus:outline-none"
+                    className="w-full focus:outline-none light:text-black dark:text-white blue:text-white"
                     placeholder="Search"
                     value={searchedCol}
                     onChange={(e) => {
@@ -122,14 +125,17 @@ const Modal = ({ isOpen, onClose, data, id, onUpdateColumns }) => {
                 </div>
               </div>
               <div
-                className="h-[88%] bg-white rounded-md shadow-inner border overflow-y-auto "
+                className="h-[88%] light:bg-white dark:bg-[#141b34] blue:bg-[#282828] rounded-md shadow-inner border overflow-y-auto  "
                 onDragOver={handleOnDragOver}
                 onDrop={handleDrop}
               >
+                <span className="light:bg-gray-400 text-white dark:bg-blue-600 blue:bg-green-500  rounded-md flex items-center justify-center py-2">
+                  Hidden Columns
+                </span>
                 {column?.map((head, i) => (
                   <div
                     key={i}
-                    className="w-full bg-blue-50 border py-2 px-2 rounded-md tracking-wide  flex justify-between items-center  cursor-grab active:cursor-grabbing "
+                    className="w-full light:bg-blue-50 dark:text-white dark:bg-[linear-gradient(135deg,#0f766e,#064e3b)] blue:bg-[#b7f764] blue:text-black border py-2 px-2 rounded-md tracking-wide  flex justify-between items-center  cursor-grab active:cursor-grabbing "
                     draggable
                     onDrag={() => handleDragStart(head)}
                     onDragEnd={() => setDraggedColumn(null)}
@@ -141,10 +147,13 @@ const Modal = ({ isOpen, onClose, data, id, onUpdateColumns }) => {
               </div>
             </div>
             <div
-              className="w-[50%] bg-white rounded-md shadow-inner border overflow-y-auto"
+              className="w-[50%] light:bg-white dark:bg-[#141b34] blue:bg-[#282828] rounded-md shadow-inner border overflow-y-auto"
               onDragOver={handleOnVisibleDrag}
               onDrop={handleOnVisibleDrop}
             >
+              <span className="light:bg-gray-400 text-white dark:bg-blue-600 blue:bg-green-500 rounded-md flex items-center justify-center py-2 sticky top-0">
+                Visible Columns
+              </span>
               <DropArea
                 classes="w-full  px-2 rounded-md "
                 onDrop={() => handleDropInSameColumn(0, draggedColumn)}
@@ -153,13 +162,13 @@ const Modal = ({ isOpen, onClose, data, id, onUpdateColumns }) => {
               {visibleColumns?.map((head, i) => (
                 <div key={i}>
                   <div
-                    className="w-full bg-blue-50 border py-2 px-2 rounded-md tracking-wide  flex justify-between items-center  cursor-grab active:cursor-grabbing "
+                    className="w-full light:bg-blue-50 dark:bg-[linear-gradient(135deg,#0f766e,#064e3b)] blue:bg-[#b7f764] blue:text-black dark:text-white border py-2 px-2 rounded-md tracking-wide  flex justify-between items-center  cursor-grab active:cursor-grabbing "
                     draggable
                     onDrag={() => handleDragStart(head)}
                     onDragEnd={() => setDraggedColumn(null)}
                   >
                     {head}
-                    <RiDraggable />
+                    <RiDraggable className="dark:text-white" />
                   </div>
                   <DropArea
                     classes="w-full  px-2 rounded-md "
@@ -172,30 +181,30 @@ const Modal = ({ isOpen, onClose, data, id, onUpdateColumns }) => {
           </div>
           <div className=" flex justify-end gap-2 ">
             <button
-              className="bg-green-500 px-3 py-1 text-white"
+              className="bg-green-500 px-3 py-1 text-white flex items-center gap-2 "
               style={{ borderRadius: 8 }}
               onClick={handleReset}
             >
-              Reset
+              <RotateCcw size={16} /> Reset
             </button>
             <button
               onClick={() => {
                 onClose();
                 handleSave();
               }}
-              className="bg-red-500 px-3 py-1 text-white"
+              className="bg-red-500 px-3 py-1 text-white flex items-center gap-2 "
               style={{ borderRadius: 8 }}
             >
-              Save & Cancel
+              <CircleCheck size={16} /> Save & Cancel
             </button>
             <button
               onClick={() => {
                 onClose();
               }}
-              className="bg-gray-500 px-3 py-1 text-white"
+              className="bg-gray-500 px-3 py-1 text-white flex items-center gap-2"
               style={{ borderRadius: 8 }}
             >
-              Close
+              <CircleX size={16} /> Close
             </button>
           </div>
         </div>

@@ -437,7 +437,7 @@ const DataTable = ({
         <div className="flex flex-col md:flex-row justify-between items-center mt-4 px-2 gap-2 md:gap-0">
           <div className="flex gap-2 items-center flex-wrap w-[70%]">
             {perPage < totalRecords && (
-              <div className="flex items-center space-x-1">
+              <div className="flex items-center  md:gap-0 lg:gap-0 w-full justify-between md:justify-start lg:justify-start space-x-1">
                 <button
                   disabled={page === 1}
                   onClick={() => onPageChange(page - 1)}
