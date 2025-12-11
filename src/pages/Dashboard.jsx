@@ -103,7 +103,7 @@ const Dashboard = () => {
       <div className="px-2 w-full rounded-[5px]">
         <div className="w-full md:flex md:flex-row grid grid-cols-2 gap-4 lg:flex-row justify-around mt-3">
           <div
-            className="lg:w-[30%] md:w-[30%] w-full rounded-2xl h-[120px] shadow-xl flex flex-col items-center justify-center gap-1 transition-all"
+            className=" lg:w-[30%] md:w-[30%] w-full rounded-2xl h-[120px] shadow-xl flex flex-col items-center justify-center gap-1 transition-all"
             style={{
               background: themeColors.card1,
               color: themeColors.cardText,

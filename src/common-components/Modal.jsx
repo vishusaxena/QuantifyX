@@ -4,7 +4,15 @@ import { useEffect, useState } from "react";
 import { RiDraggable } from "react-icons/ri";
 import DropArea from "./DropArea";
 
-const Modal = ({ isOpen, onClose, data, id, onUpdateColumns }) => {
+const Modal = ({
+  isOpen,
+  onClose,
+  data,
+  id,
+  // onUpdateColumns,
+  columnOrder,
+  setColumnOrder,
+}) => {
   if (!isOpen) return null;
 
   const [draggedColumn, setDraggedColumn] = useState(null);
@@ -26,10 +34,13 @@ const Modal = ({ isOpen, onClose, data, id, onUpdateColumns }) => {
   const [isSearching, setIsSearching] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(
-      () => handleSearch(searchedCol.toUpperCase()),
-      500
-    );
+    setVisibleColumns(columnOrder);
+  }, [columnOrder]);
+  useEffect(() => {
+    let timer;
+    if (searchedCol !== "") {
+      timer = setTimeout(() => handleSearch(searchedCol.toUpperCase()), 500);
+    }
 
     return () => clearTimeout(timer);
   }, [searchedCol]);
@@ -88,7 +99,7 @@ const Modal = ({ isOpen, onClose, data, id, onUpdateColumns }) => {
       `visibleColumns_${id}`,
       JSON.stringify(visibleColumns)
     );
-    onUpdateColumns(visibleColumns);
+    setColumnOrder(visibleColumns);
   };
 
   const handleReset = () => {

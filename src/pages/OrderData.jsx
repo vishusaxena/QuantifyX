@@ -105,6 +105,7 @@ const OrderData = () => {
           handleBulkDelete();
           setIsDeleteModalOpen(false);
         }}
+        title={t("Are you sure you want to delete it")}
       />
       <DeletedLog deletedLog={deletedLog} />
     </div>

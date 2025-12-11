@@ -26,7 +26,12 @@ const Team = () => {
 
   useEffect(() => {
     localStorage.setItem(LOCAL_KEY, JSON.stringify(teamData));
-  }, [teamData]);
+    const totalPages = Math.ceil(teamData.Data.length / perPage);
+
+    if (page > totalPages) {
+      setPage(totalPages || 1);
+    }
+  }, [teamData, perPage]);
 
   if (isConfirmModalClicked) {
     exportTableToExcel("tableData", "team-data.xlsx");
@@ -155,6 +160,7 @@ const Team = () => {
           setDeleteTarget(null);
           setIsDeleteModalOpen(false);
         }}
+        title={t("Are you sure you want to delete it")}
       />
 
       <DataTable

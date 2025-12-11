@@ -86,7 +86,7 @@ const Leftbar = ({ showMobileMenu, setShowMobileMenu }) => {
 
   const DesktopSidebar = (
     <div
-      className="sticky right-0 top-0 h-screen light:bg-black shadow-lg flex flex-col transition-all duration-300 dark:bg-[#141b34] blue:bg-[#282828]"
+      className="sticky right-0 top-0 h-screen  light:bg-black shadow-lg flex flex-col transition-all duration-300 dark:bg-[#141b34] blue:bg-[#282828]"
       style={{ width }}
     >
       <div className="p-4 flex justify-between items-center dark:text-gray-200 blue:text-[#f5ed05] light:text-white">

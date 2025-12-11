@@ -44,10 +44,10 @@ const DataTable = ({
     return saved ? JSON.parse(saved) : [];
   });
 
-  const [visiblecolumnList, setVisibleColumnList] = useState(() => {
-    const stored = localStorage.getItem(`visibleColumns_${tableId}`);
-    return stored ? JSON.parse(stored) : [];
-  });
+  // const [visiblecolumnList, setVisibleColumnList] = useState(() => {
+  //   const stored = localStorage.getItem(`visibleColumns_${tableId}`);
+  //   return stored ? JSON.parse(stored) : [];
+  // });
   const [colWidths, setColWidths] = useState({});
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -78,10 +78,7 @@ const DataTable = ({
         setColumnOrder(ordered);
       }
     }
-    if (visiblecolumnList?.length) {
-      setColumnOrder(visiblecolumnList);
-    }
-  }, [data, visiblecolumnList]);
+  }, [data]);
 
   if (!data || !data.Data)
     return (
@@ -262,7 +259,9 @@ const DataTable = ({
           onClose={() => setIsModalOpen(false)}
           data={visibleColumns}
           id={tableId}
-          onUpdateColumns={(updated) => setVisibleColumnList(updated)}
+          columnOrder={columnOrder}
+          // onUpdateColumns={(updated) => setVisibleColumnList(updated)}
+          setColumnOrder={(updated) => setColumnOrder(updated)}
         />
         <DndContext
           collisionDetection={closestCenter}

@@ -25,7 +25,7 @@ const User = () => {
   const fetchData = async () => {
     const res = await apiCall("get", "/users");
     if (!res.ok) {
-      toast.error((t("error_fetching_users")));
+      toast.error(t("error_fetching_users"));
       return;
     }
 
@@ -45,7 +45,7 @@ const User = () => {
 
       if (!res.ok) {
         toast.error(t("failed_to_add_user"));
-        throw new Error((t("failed_to_add_user")));
+        throw new Error(t("failed_to_add_user"));
       }
 
       const savedUser = await res.json();
@@ -186,6 +186,7 @@ const User = () => {
           setDeleteTarget(null);
           setIsDeleteModalOpen(false);
         }}
+        title={t("Are you sure you want to delete it")}
       />
     </div>
   );
