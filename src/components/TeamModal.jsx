@@ -235,12 +235,12 @@ const TeamModal = ({
 
       <div className="dark:bg-[#141b34] blue:bg-[#282828] blue:text-[#ffffff]">
         <Modal.Footer className="no-border">
-          <Button
+          <button
             ref={refs.resetBtn}
-            variant="secondary"
             onClick={handleReset}
             onKeyDown={(e) => handleKeyDown(e, "resetBtn")}
             className="
+              focus:ring-green-500
               d-flex align-items-center gap-2 
               px-4 py-2 fw-medium rounded-3 shadow-sm 
               border-0
@@ -252,11 +252,10 @@ const TeamModal = ({
           >
             <RefreshCw size={18} />
             {t("teamModal.reset")}
-          </Button>
+          </button>
 
-          <Button
+          <button
             ref={refs.saveBtn}
-            variant="primary"
             onClick={handleSave}
             className="
               d-flex align-items-center gap-2 
@@ -270,7 +269,7 @@ const TeamModal = ({
           >
             <Save size={18} />
             {isEdit ? t("teamModal.update") : t("teamModal.save")}
-          </Button>
+          </button>
         </Modal.Footer>
       </div>
     </Modal>

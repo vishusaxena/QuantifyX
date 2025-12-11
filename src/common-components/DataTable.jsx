@@ -29,7 +29,6 @@ const DataTable = ({
   tableId = "data-table",
 }) => {
   const { t } = useTranslation();
-
   const [selectedAction, setSelectedAction] = useState("");
   const [sortConfig, setSortConfig] = useState({
     key: null,
@@ -44,10 +43,6 @@ const DataTable = ({
     return saved ? JSON.parse(saved) : [];
   });
 
-  // const [visiblecolumnList, setVisibleColumnList] = useState(() => {
-  //   const stored = localStorage.getItem(`visibleColumns_${tableId}`);
-  //   return stored ? JSON.parse(stored) : [];
-  // });
   const [colWidths, setColWidths] = useState({});
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -260,7 +255,6 @@ const DataTable = ({
           data={visibleColumns}
           id={tableId}
           columnOrder={columnOrder}
-          // onUpdateColumns={(updated) => setVisibleColumnList(updated)}
           setColumnOrder={(updated) => setColumnOrder(updated)}
         />
         <DndContext
@@ -533,6 +527,7 @@ import {
 import { CSS } from "@dnd-kit/utilities";
 import Modal from "./Modal";
 import { tab } from "@material-tailwind/react";
+import { usedata } from "../context/dataContext";
 
 function ColumnsHeader({
   col,
@@ -553,10 +548,16 @@ function ColumnsHeader({
     isDragging,
   } = useSortable({ id: col });
 
+  const { theme } = usedata();
+  const themeColor = {
+    dark: "#3c559e",
+    blue: "#f2ad32",
+    light: "#f3f4f6",
+  };
   const style = {
     transform: CSS.Transform.toString(transform),
     transition,
-    backgroundColor: isDragging ? "#f3f4f6" : undefined,
+    backgroundColor: isDragging ? `${themeColor[theme]}` : undefined,
     zIndex: isDragging ? 50 : pinned[col] ? 2 : 1,
   };
 

@@ -202,6 +202,7 @@ const RegisterPage = () => {
                     maxLength={item.maxLength}
                     name={item.name}
                     value={formData[item.name]}
+                    autoComplete="off"
                     onChange={handleChange}
                     ref={(el) => (inputRefs.current[item.name] = el)}
                     onKeyDown={(e) =>

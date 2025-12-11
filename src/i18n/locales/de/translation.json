@@ -39,6 +39,7 @@
   "reset": "Zurücksetzen",
   "save": "Speichern",
   "update": "Aktualisieren",
+  "close": "schließen",
 
   "error_firstname_required": "Der Vorname ist erforderlich",
   "error_lastname_required": "Der Nachname ist erforderlich",
@@ -129,60 +130,6 @@
     "update": "Aktualisieren",
     "reset": "Zurücksetzen",
     "next": "Weiter"
-  },
-  "loginPage": {
-    "title": "QuantifyX",
-    "welcomeHeadline": "Hallo\nWillkommen zurück",
-    "welcomeText": "Hey, willkommen zurück bei QuantifyX",
-    "invalidCredentials": "Ungültige Zugangsdaten",
-    "emailId": "E-Mail-Adresse",
-    "password": "Passwort",
-    "loginButton": "Anmelden",
-    "dontHaveAccount": "Sie haben kein Konto?",
-    "createAccount": "Konto erstellen",
-    "forgotPassword": "Passwort vergessen?",
-    "emailRequired": "E-Mail ist erforderlich",
-    "invalidEmailFormat": "Ungültiges E-Mail-Format",
-    "passwordRequired": "Passwort ist erforderlich",
-    "loginSuccess": "Anmeldung erfolgreich!"
-  },
-  "registerPage": {
-    "title": "Erstellen Sie Ihr Konto",
-    "labelName": "Name",
-    "labelEmail": "E-Mail-Adresse",
-    "labelPhone": "Telefonnummer",
-    "labelPassword": "Passwort",
-    "labelConfirmPassword": "Passwort bestätigen",
-
-    "placeholderName": "Name",
-    "placeholderEmail": "E-Mail-Adresse",
-    "placeholderPhone": "Telefonnummer",
-    "placeholderPassword": "Passwort",
-    "placeholderConfirmPassword": "Passwort bestätigen",
-
-    "userExists": "Benutzer existiert bereits",
-
-    "errNameRequired": "Name ist erforderlich",
-    "errEmailRequired": "E-Mail ist erforderlich",
-    "errEmailInvalid": "Ungültiges E-Mail-Format",
-    "errPhoneRequired": "Telefonnummer ist erforderlich",
-    "errPhoneInvalid": "Ungültige Telefonnummer",
-    "errPasswordRequired": "Passwort ist erforderlich",
-    "errConfirmRequired": "Bestätigen Sie Ihr Passwort",
-    "errPasswordMismatch": "Passwörter stimmen nicht überein",
-
-    "passwordStrengthStrong": "Stark",
-    "passwordStrengthMedium": "Mittel",
-    "passwordStrengthWeak": "Schwach",
-    "passwordStrengthLabel": "Passwortstärke",
-
-    "passwordsMatch": "Passwörter stimmen überein",
-
-    "buttonSignup": "Registrieren",
-    "alreadyHaveAccount": "Haben Sie bereits ein Konto?",
-    "signin": "Anmelden",
-
-    "successRegister": "Benutzer erfolgreich registriert!"
   },
 
   "profilePage": {
@@ -364,17 +311,7 @@
     "failed_to_delete_user": "Benutzer konnte nicht gelöscht werden",
     "user_deleted_successfully": "Benutzer erfolgreich gelöscht"
   },
-  "forgotPassword": {
-    "forgot_password": "Passwort vergessen",
-    "enter_registered_email": "Geben Sie Ihre registrierte E-Mail-Adresse ein, um Anweisungen zum Zurücksetzen des Passworts zu erhalten.",
-    "send_instructions": "Anweisungen senden",
-    "reset_password": "Passwort zurücksetzen",
-    "strength": "Stärke",
-    "new_password": "Neues Passwort",
-    "confirm_password": "Passwort bestätigen",
-    "passwords_match": "Passwörter stimmen überein",
-    "passwords_do_not_match": "Passwörter stimmen nicht überein"
-  },
+
   "Email": "E-Mail",
   "Username": "Benutzername",
   "First name": "Vorname",
@@ -466,5 +403,8 @@
   "Are you sure you want to delete it": "Sind Sie sicher, dass Sie es löschen möchten ?",
   "Are you confirm you want to move it": "Sind Sie sicher, dass Sie es verschieben möchten?",
 
-  "remark": "Bemerkung"
+  "remark": "Bemerkung",
+  "hiddenColumns": "Versteckte Spalten",
+  "visibleColumns": "Sichtbare Spalten",
+  "search": "Suchen"
 }

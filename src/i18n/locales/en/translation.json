@@ -38,6 +38,7 @@
   "reset": "Reset",
   "save": "Save",
   "update": "Update",
+  "close": "Close",
 
   "error_firstname_required": "First name is required",
   "error_lastname_required": "Last name is required",
@@ -459,5 +460,9 @@
   "Are you sure you want to delete it": "Are you sure you want to delete it ?",
   "Are you confirm you want to move it": "Are you confirm you want to move it ?",
 
-  "remark": "Remarks"
+  "remark": "Remarks",
+  "visibleColumns": "Visible Columns",
+  "hiddenColumns": "Hidden Columns",
+  "search": "Search",
+  "forgotPassword.send_instructions":"Send Instructions"
 }

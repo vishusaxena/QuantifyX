@@ -60,6 +60,7 @@ const InputComponent = forwardRef(
           value={value}
           as={as}
           rows={rows}
+          autoComplete="off"
           readOnly={readOnly}
           onClick={onOpen}
           onChange={onChange}

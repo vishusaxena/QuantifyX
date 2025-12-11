@@ -31,10 +31,10 @@ const ForgotPassword = () => {
   }, [step]);
 
   const getPasswordStrength = (pwd) => {
-    if (pwd.length < 6) return t("forgotPassword.weak");
+    if (pwd.length < 6) return "Weak";
     if (pwd.match(/[A-Z]/) && pwd.match(/[0-9]/) && pwd.length >= 8)
-      return t("forgotPassword.strong");
-    return t("forgotPassword.medium");
+      return "Strong";
+    return "Medium";
   };
 
   const strength = password ? getPasswordStrength(password) : "";
@@ -44,14 +44,14 @@ const ForgotPassword = () => {
     setError("");
 
     if (!emailId) {
-      setError(t("forgotPassword.please_enter_email"));
+      setError("Please enter email !");
       return;
     }
 
     const emailExist = registerData.find((u) => u.email === emailId);
 
     if (!emailExist) {
-      setError(t("forgotPassword.email_not_found"));
+      setError("Invalid email !");
       return;
     }
 
@@ -63,17 +63,17 @@ const ForgotPassword = () => {
     setError("");
 
     if (!password || !confirmPassword) {
-      setError(t("forgotPassword.please_fill_all_fields"));
+      setError(t("Please fill all fields"));
       return;
     }
 
     if (password.length < 6) {
-      setError(t("forgotPassword.password_min_length"));
+      setError(t("Password should have at least 6 digit"));
       return;
     }
 
     if (password !== confirmPassword) {
-      setError(t("forgotPassword.passwords_do_not_match"));
+      setError(t("Password do not match "));
       return;
     }
 

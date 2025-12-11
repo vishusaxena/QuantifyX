@@ -3,16 +3,9 @@ import { useEffect, useState } from "react";
 
 import { RiDraggable } from "react-icons/ri";
 import DropArea from "./DropArea";
+import { t } from "i18next";
 
-const Modal = ({
-  isOpen,
-  onClose,
-  data,
-  id,
-  // onUpdateColumns,
-  columnOrder,
-  setColumnOrder,
-}) => {
+const Modal = ({ isOpen, onClose, data, id, columnOrder, setColumnOrder }) => {
   if (!isOpen) return null;
 
   const [draggedColumn, setDraggedColumn] = useState(null);
@@ -125,7 +118,7 @@ const Modal = ({
                   <input
                     type="text"
                     className="w-full focus:outline-none light:text-black dark:text-white blue:text-white"
-                    placeholder="Search"
+                    placeholder={t("search")}
                     value={searchedCol}
                     onChange={(e) => {
                       if (e.target.value !== "") setIsSearching(true);
@@ -141,7 +134,7 @@ const Modal = ({
                 onDrop={handleDrop}
               >
                 <span className="light:bg-gray-400 text-white dark:bg-blue-600 blue:bg-green-500  rounded-md flex items-center justify-center py-2">
-                  Hidden Columns
+                  {t("hiddenColumns")}
                 </span>
                 {column?.map((head, i) => (
                   <div
@@ -163,7 +156,7 @@ const Modal = ({
               onDrop={handleOnVisibleDrop}
             >
               <span className="light:bg-gray-400 text-white dark:bg-blue-600 blue:bg-green-500 rounded-md flex items-center justify-center py-2 sticky top-0">
-                Visible Columns
+                {t("visibleColumns")}
               </span>
               <DropArea
                 classes="w-full  px-2 rounded-md "
@@ -196,7 +189,7 @@ const Modal = ({
               style={{ borderRadius: 8 }}
               onClick={handleReset}
             >
-              <RotateCcw size={16} /> Reset
+              <RotateCcw size={16} /> {t("reset")}
             </button>
             <button
               onClick={() => {
@@ -206,7 +199,7 @@ const Modal = ({
               className="bg-red-500 px-3 py-1 text-white flex items-center gap-2 "
               style={{ borderRadius: 8 }}
             >
-              <CircleCheck size={16} /> Save & Cancel
+              <CircleCheck size={16} /> {t("save")}
             </button>
             <button
               onClick={() => {
@@ -215,7 +208,7 @@ const Modal = ({
               className="bg-gray-500 px-3 py-1 text-white flex items-center gap-2"
               style={{ borderRadius: 8 }}
             >
-              <CircleX size={16} /> Close
+              <CircleX size={16} /> {t("close")}
             </button>
           </div>
         </div>

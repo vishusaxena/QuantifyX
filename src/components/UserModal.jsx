@@ -235,9 +235,8 @@ const Usermodal = ({ isOpen, onClose, onSave, onUpdate, user }) => {
             {t("reset")}
           </Button>
 
-          <Button
+          <button
             ref={saveRef}
-            variant="primary"
             onClick={handleSubmit}
             className="
             d-flex align-items-center gap-2 
@@ -250,7 +249,7 @@ const Usermodal = ({ isOpen, onClose, onSave, onUpdate, user }) => {
           >
             <Save size={18} />
             {user ? t("update") : t("save")}
-          </Button>
+          </button>
         </Modal.Footer>
       </div>
     </Modal>
