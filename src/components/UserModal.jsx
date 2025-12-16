@@ -103,7 +103,14 @@ const Usermodal = ({ isOpen, onClose, onSave, onUpdate, user }) => {
   };
 
   return (
-    <Modal show={isOpen} onHide={onClose} centered size="lg" backdrop="static">
+    <Modal
+      show={isOpen}
+      onHide={onClose}
+      centered
+      size="lg"
+      backdrop="static"
+      className="custom-dialog"
+    >
       <Modal.Header
         closeButton
         className="custom-close-btn dark:bg-[#141b34] dark:text-gray-200 blue:bg-[#282828] blue:text-[#ffffff] no-border"
@@ -217,6 +224,21 @@ const Usermodal = ({ isOpen, onClose, onSave, onUpdate, user }) => {
       </Modal.Body>
       <div className="dark:bg-[#141b34] dark:text-gray-200 blue:bg-[#282828] blue:text-[#ffffff]">
         <Modal.Footer className="no-border">
+          <button
+            ref={saveRef}
+            onClick={handleSubmit}
+            className="
+            d-flex align-items-center gap-2 
+            px-4 py-2 fw-medium rounded-3 shadow-sm 
+            border-0 text-white
+            bg-linear-to-r from-blue-600 to-blue-700
+            hover:shadow-lg hover:scale-105
+            transition-all duration-200
+          "
+          >
+            <Save size={18} />
+            {user ? t("update") : t("save")}
+          </button>
           <Button
             ref={resetRef}
             variant="secondary"
@@ -234,22 +256,6 @@ const Usermodal = ({ isOpen, onClose, onSave, onUpdate, user }) => {
             <RefreshCw size={18} />
             {t("reset")}
           </Button>
-
-          <button
-            ref={saveRef}
-            onClick={handleSubmit}
-            className="
-            d-flex align-items-center gap-2 
-            px-4 py-2 fw-medium rounded-3 shadow-sm 
-            border-0 text-white
-            bg-linear-to-r from-blue-600 to-blue-700
-            hover:shadow-lg hover:scale-105
-            transition-all duration-200
-          "
-          >
-            <Save size={18} />
-            {user ? t("update") : t("save")}
-          </button>
         </Modal.Footer>
       </div>
     </Modal>

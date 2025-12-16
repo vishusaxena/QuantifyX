@@ -1,15 +1,16 @@
 import React, { useEffect, useRef, useState } from "react";
-import InputComponent from "../common-components/InputComponent";
-import Button from "../common-components/Buttons";
+import InputComponent from "../../common-components/InputComponent";
+import Button from "../../common-components/Buttons";
 import { useNavigate, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
-import { usedata } from "../context/dataContext";
-import SelectComponent from "../common-components/SelectComponent";
-import { formatDate, formatDateWithTime } from "../utils/formatDate";
+import { usedata } from "../../context/dataContext";
+import SelectComponent from "../../common-components/SelectComponent";
+import { formatDate, formatDateWithTime } from "../../utils/formatDate";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { format } from "date-fns";
+import CommonDatePicker from "../../common-components/CommonDatePicker";
 
 const formatCustomDate = (date) => {
   if (!date) return "";
@@ -193,85 +194,50 @@ const Task = () => {
             }}
             onKeyDown={(e) => handleKeyDown(e, "startDate")}
           />
-          <div className={`datepicker-container ${theme}`}>
-            <DatePicker
-              name="startDate"
-              open={isStartOpen}
-              onClickOutside={() => setIsStartOpen(false)}
-              selected={
-                taskData.startDate ? new Date(taskData.startDate) : null
-              }
-              minDate={new Date()}
-              onChange={(date) => {
-                setIsStartOpen(false);
-                const formatted = formatCustomDate(date);
-                if (formatted < taskData.endDate) {
-                  setTaskData({
-                    ...taskData,
-                    startDate: formatted,
-                  });
-                } else {
-                  setTaskData({
-                    ...taskData,
-                    startDate: formatted,
-                    endDate: "",
-                  });
-                }
-                setError({ ...error, startDate: "" });
-              }}
-              dateFormat="dd-MMM-yyyy"
-              ref={(el) => {
-                inputRefs.current["startDate"] = el;
-              }}
-              customInput={
-                <InputComponent
-                  label={t("startDate")}
-                  value={taskData.startDate}
-                  error={error.startDate}
-                  onOpen={() => {
-                    setIsStartOpen(true);
-                  }}
-                />
-              }
-              placeholderText={t("startDate")}
-              onKeyDown={(e) => handleKeyDown(e, "endDate")}
-            />
-          </div>
+          <CommonDatePicker
+            ref={(el) => (inputRefs.current.startDate = el)}
+            name="startDate"
+            label={t("startDate")}
+            value={taskData.startDate}
+            placeholder={t("startDate")}
+            error={error.startDate}
+            isOpen={isStartOpen}
+            setIsOpen={setIsStartOpen}
+            theme={theme}
+            minDate={new Date()}
+            onChange={(date) => {
+              const formatted = formatCustomDate(date);
 
-          <div className={`datepicker-container ${theme}`}>
-            <DatePicker
-              name="endDate"
-              open={isEndOpen}
-              onClickOutside={() => setIsEndOpen(false)}
-              selected={taskData.endDate ? new Date(taskData.endDate) : null}
-              minDate={
-                taskData.startDate ? new Date(taskData.startDate) : new Date()
+              if (formatted < taskData.endDate) {
+                setTaskData({ ...taskData, startDate: formatted });
+              } else {
+                setTaskData({ ...taskData, startDate: formatted, endDate: "" });
               }
-              onChange={(date) => {
-                setIsEndOpen(false);
-                const formatted = formatCustomDate(date);
-                setTaskData({ ...taskData, endDate: formatted });
-                setError({ ...error, endDate: "" });
-              }}
-              dateFormat="dd-MMM-yyyy"
-              ref={(el) => {
-                inputRefs.current["endDate"] = el;
-              }}
-              calendarClassName="text-black"
-              customInput={
-                <InputComponent
-                  label={t("endDate")}
-                  value={taskData.endDate}
-                  error={error.endDate}
-                  onOpen={() => {
-                    setIsEndOpen(true);
-                  }}
-                />
-              }
-              placeholderText={t("endDate")}
-              onKeyDown={(e) => handleKeyDown(e, "timeTaken")}
-            />
-          </div>
+              setError({ ...error, startDate: "" });
+            }}
+            onKeyDown={(e) => handleKeyDown(e, "endDate")}
+          />
+
+          <CommonDatePicker
+            ref={(el) => (inputRefs.current.endDate = el)}
+            name="endDate"
+            label={t("endDate")}
+            value={taskData.endDate}
+            placeholder={t("endDate")}
+            error={error.endDate}
+            isOpen={isEndOpen}
+            setIsOpen={setIsEndOpen}
+            theme={theme}
+            minDate={
+              taskData.startDate ? new Date(taskData.startDate) : new Date()
+            }
+            onChange={(date) => {
+              const formatted = formatCustomDate(date);
+              setTaskData({ ...taskData, endDate: formatted });
+              setError({ ...error, endDate: "" });
+            }}
+            onKeyDown={(e) => handleKeyDown(e, "timeTaken")}
+          />
 
           <InputComponent
             ref={(el) => (inputRefs.current.timeTaken = el)}

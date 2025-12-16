@@ -379,12 +379,25 @@ const DataTable = ({
                         >
                           {col === "Active" || col === "Account Status" ? (
                             <span
-                              className={`px-3 py-1 rounded-full text-sm font-medium
-                                     ${
-                                       row[col] === "Active"
-                                         ? "bg-green-100 text-green-700 border border-green-300"
-                                         : "bg-red-100 text-red-700 border border-red-300"
-                                     }`}
+                              className={`
+                                           px-3 py-1 rounded-full text-sm font-semibold border shadow-sm 
+                                           transition-all duration-200
+                                          ${
+                                            row[col] === "Yes"
+                                              ? `
+                                           text-blue-700
+                                           light:bg-white light:border-blue-700
+                                             dark:bg-green-900/40 dark:text-green-300 dark:border-green-700
+                                             blue:bg-green-900/40 blue:text-green-300 blue:border-green-700
+                                             `
+                                              : `
+                                             text-red-800
+                                             light:bg-white light:border-red-300
+                                             dark:bg-red-900/40 dark:text-red-300 dark:border-red-700
+                                             blue:bg-red-900/40 blue:text-red-300 blue:border-red-700
+                                             `
+                                          }
+                                     `}
                             >
                               {row[col]}
                             </span>
@@ -491,28 +504,6 @@ const DataTable = ({
           </div>
         </div>
       </div>
-      <style>
-        {` .custom-select{
-            font-size: 16px;
-            padding: 2px 16px 2px 16px;
-            border-radius: 8px;
-            background-color: #ffffff;
-            border-right: 16px solid transparent;
-            box-shadow: 0 0 2px rgba(0,0,0,.5);  
-            outline: none;                
-            transition: all 150ms;          
-            cursor: pointer; 
-            }
-            .dark .custom-select {
-            background-color: #141b34;
-            color: #cbd5e1;
-            }
-            .blue .custom-select {
-            background-color: #282828;
-            color: #ffffff;
-            }
-         `}
-      </style>
     </>
   );
 };
@@ -525,7 +516,7 @@ import {
   useSortable,
 } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
-import Modal from "./Modal";
+import Modal from "../components/Modal";
 import { tab } from "@material-tailwind/react";
 import { usedata } from "../context/dataContext";
 

@@ -3,7 +3,7 @@ import logo from "../assets/forgot-password.svg";
 import CryptoJS from "crypto-js";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
-import { Eye, EyeOff } from "lucide-react";
+import { Eye, EyeOff, MoveLeft } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 const ForgotPassword = () => {
@@ -93,7 +93,12 @@ const ForgotPassword = () => {
   };
 
   return (
-    <div className="w-full min-h-screen flex items-center justify-center px-4">
+    <div className="w-full min-h-screen flex flex-col items-center justify-center px-4">
+      <div className="mb-3 dark:text-white blue:text-white  w-[70%]">
+        <button className="flex gap-2" onClick={() => navigate("/login")}>
+          <MoveLeft /> <span>{t("passwordReset.back")}</span>
+        </button>
+      </div>
       <div className="flex w-full max-w-4xl shadow-lg rounded-xl p-8 bg-white">
         <div className="hidden md:flex w-1/2 items-center justify-center">
           <img src={logo} alt="Forgot Illustration" className="w-72" />

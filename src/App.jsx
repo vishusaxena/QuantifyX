@@ -14,9 +14,9 @@ import OrderData from "./pages/OrderData";
 import ForgotPassword from "./pages/ForgotPasswordPage";
 import PasswordReset from "./pages/PasswordReset";
 import UserPreview from "./components/UserPreview";
-import Task from "./pages/Task";
-import TaskManager from "./pages/TaskManager";
-import Loading from "./pages/Loading";
+import Task from "./pages/Task/Task";
+import TaskManager from "./pages/Task/TaskManager";
+import Loading from "./common-components/Loading";
 
 const User = lazy(() => import("./pages/User"));
 

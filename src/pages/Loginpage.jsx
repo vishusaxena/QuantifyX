@@ -5,7 +5,7 @@ import { Eye, EyeOff } from "lucide-react";
 import logo from "../assets/login-image.png";
 import { toast } from "react-toastify";
 import { useTranslation } from "react-i18next";
-import Loading from "./Loading";
+import LoginLoader from "../common-components/LoginLoader";
 
 const Loginpage = () => {
   const { t } = useTranslation();
@@ -72,18 +72,20 @@ const Loginpage = () => {
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
-
   const handleLogIn = () => {
     if (!validate()) return;
+
     setIsLoading(true);
+
     const success = login(formData);
 
     if (success) {
       setTimeout(() => {
         notify();
         navigate("/");
-      }, 2000);
+      }, 500);
     } else {
+      setIsLoading(false);
       setErrors({
         ...errors,
         invalidCredentials: t("loginPage.invalidCredentials"),
@@ -105,7 +107,7 @@ const Loginpage = () => {
   return (
     <div className="w-screen h-screen flex light:bg-white dark:bg-[#0a0f24] blue:bg-[#121212] justify-center">
       {isLoading ? (
-        <Loading />
+        <LoginLoader title="Logging In ........." />
       ) : (
         <>
           {" "}
@@ -131,7 +133,7 @@ const Loginpage = () => {
             {inputsField.map((item, i) => (
               <div key={i} className=" md:w-[90%] lg:w-[90%] mt-3 relative">
                 <input
-                  className="w-full py-3 px-3 mb-3 rounded-xl border-2 light:border-blue-400 
+                  className="w-full py-3 px-3 mb-3 rounded-xl border-2 focus:outline-none light:border-blue-400 
                          light:text-black dark:text-gray-200 
                          placeholder-gray-400 dark:placeholder-gray-300
                          blue:text-white blue:bg-[#2e2e2e] blue:border-[#555]"

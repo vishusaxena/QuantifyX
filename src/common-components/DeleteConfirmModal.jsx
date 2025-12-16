@@ -67,7 +67,13 @@ const DeleteConfirmModal = ({
 
       <div className="dark:bg-[#141b34] blue:bg-[#282828] blue:text-[#ffffff]">
         <Modal.Footer className="d-flex justify-content-center">
-          <Button variant="secondary" onClick={onClose}>
+          <Button
+            variant="secondary"
+            onClick={() => {
+              onClose();
+              setRemarkError("");
+            }}
+          >
             {t("cancel")}
           </Button>
 

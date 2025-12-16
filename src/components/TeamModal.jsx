@@ -38,20 +38,11 @@ const TeamModal = ({
   const [errors, setErrors] = useState({});
   const isEdit = !!editTeam;
 
-  const refs = {
-    teamName: useRef(null),
-    createdBy: useRef(null),
-    createdDate: useRef(null),
-    modifiedBy: useRef(null),
-    modifiedDate: useRef(null),
-    isActive: useRef(null),
-    resetBtn: useRef(null),
-    saveBtn: useRef(null),
-  };
+  const inputRefs = useRef({});
 
   useEffect(() => {
     if (isOpen) {
-      setTimeout(() => refs.teamName.current?.focus(), 200);
+      setTimeout(() => inputRefs?.current?.teamName?.focus(), 200);
     }
   }, [isOpen]);
 
@@ -59,25 +50,6 @@ const TeamModal = ({
     if (editTeam) setFormData(editTeam);
     else setFormData(defaultData);
   }, [editTeam, isOpen]);
-
-  const handleKeyDown = (e, fieldName) => {
-    if (e.key === "Enter") {
-      e.preventDefault();
-      const keys = Object.keys(refs);
-      let currentIndex = keys.indexOf(fieldName);
-
-      let nextField = null;
-      for (let i = currentIndex + 1; i < keys.length; i++) {
-        const ref = refs[keys[i]].current;
-        if (ref && !ref.disabled) {
-          nextField = keys[i];
-          break;
-        }
-      }
-
-      if (nextField) refs[nextField].current?.focus();
-    }
-  };
 
   const handleChange = (e) => {
     const { name, checked, type, value } = e.target;
@@ -122,6 +94,31 @@ const TeamModal = ({
     setTimeout(() => refs.teamName.current?.focus(), 100);
   };
 
+  const handleKeyDown = (e, nextFieldName) => {
+    if (e.key !== "Enter") return;
+
+    e.preventDefault();
+
+    if (!nextFieldName) return;
+
+    let nextField = inputRefs.current[nextFieldName];
+
+    while (nextField && nextField.disabled) {
+      const keys = Object.keys(inputRefs.current);
+      console.log(keys);
+      const currentIndex = keys.indexOf(nextFieldName);
+
+      if (currentIndex === -1 || currentIndex + 1 >= keys.length) return;
+
+      nextFieldName = keys[currentIndex + 1];
+      nextField = inputRefs.current[nextFieldName];
+    }
+
+    if (nextField) {
+      nextField.focus();
+    }
+  };
+
   return (
     <Modal
       show={isOpen}
@@ -133,7 +130,7 @@ const TeamModal = ({
       size="lg"
       backdrop="static"
       dialogClassName="modal-fullscreen-sm-down"
-      className="modal-custom"
+      className="modal-custom custom-dialog"
       backdropClassName="custom-backdrop"
     >
       <Modal.Header
@@ -158,8 +155,8 @@ const TeamModal = ({
                 maxLength={50}
                 value={formData.teamName}
                 onChange={handleChange}
-                ref={refs.teamName}
-                onKeyDown={(e) => handleKeyDown(e, "teamName")}
+                ref={(el) => (inputRefs.current.teamName = el)}
+                onKeyDown={(e) => handleKeyDown(e, "createdBy")}
                 error={errors.teamName}
               />
             </Col>
@@ -171,8 +168,8 @@ const TeamModal = ({
                 maxLength={50}
                 value={formData.createdBy}
                 onChange={handleChange}
-                ref={refs.createdBy}
-                onKeyDown={(e) => handleKeyDown(e, "createdBy")}
+                ref={(el) => (inputRefs.current.createdBy = el)}
+                onKeyDown={(e) => handleKeyDown(e, "createdDate")}
                 error={errors.createdBy}
                 disabled
               />
@@ -184,8 +181,8 @@ const TeamModal = ({
                 name="createdDate"
                 value={formData.createdDate}
                 onChange={handleChange}
-                ref={refs.createdDate}
-                onKeyDown={(e) => handleKeyDown(e, "createdDate")}
+                ref={(el) => (inputRefs.current.createdDate = el)}
+                onKeyDown={(e) => handleKeyDown(e, "modifiedBy")}
                 error={errors.createdDate}
                 disabled
               />
@@ -200,8 +197,8 @@ const TeamModal = ({
                 maxLength={50}
                 value={formData.modifiedBy}
                 onChange={handleChange}
-                ref={refs.modifiedBy}
-                onKeyDown={(e) => handleKeyDown(e, "modifiedBy")}
+                ref={(el) => (inputRefs.current.modifiedBy = el)}
+                onKeyDown={(e) => handleKeyDown(e, "modifiedDate")}
                 disabled={!isEdit}
               />
             </Col>
@@ -212,8 +209,8 @@ const TeamModal = ({
                 name="modifiedDate"
                 value={formData.modifiedDate}
                 onChange={handleChange}
-                ref={refs.modifiedDate}
-                onKeyDown={(e) => handleKeyDown(e, "modifiedDate")}
+                ref={(el) => (inputRefs.current.modifiedDate = el)}
+                onKeyDown={(e) => handleKeyDown(e, "isActive")}
                 disabled
               />
             </Col>
@@ -227,8 +224,8 @@ const TeamModal = ({
             name="isActive"
             checked={formData.isActive}
             onChange={handleChange}
-            ref={refs.isActive}
-            onKeyDown={(e) => handleKeyDown(e, "isActive")}
+            ref={(el) => (inputRefs.current.isActive = el)}
+            onKeyDown={(e) => handleKeyDown(e, "saveBtn")}
           />
         </Form>
       </Modal.Body>
@@ -236,26 +233,7 @@ const TeamModal = ({
       <div className="dark:bg-[#141b34] blue:bg-[#282828] blue:text-[#ffffff]">
         <Modal.Footer className="no-border">
           <button
-            ref={refs.resetBtn}
-            onClick={handleReset}
-            onKeyDown={(e) => handleKeyDown(e, "resetBtn")}
-            className="
-              focus:ring-green-500
-              d-flex align-items-center gap-2 
-              px-4 py-2 fw-medium rounded-3 shadow-sm 
-              border-0
-              text-white
-              bg-linear-to-r from-green-500 to-green-600
-              hover:shadow-lg hover:scale-105
-              transition-all duration-200
-            "
-          >
-            <RefreshCw size={18} />
-            {t("teamModal.reset")}
-          </button>
-
-          <button
-            ref={refs.saveBtn}
+            ref={(el) => (inputRefs.current.saveBtn = el)}
             onClick={handleSave}
             className="
               d-flex align-items-center gap-2 
@@ -269,6 +247,22 @@ const TeamModal = ({
           >
             <Save size={18} />
             {isEdit ? t("teamModal.update") : t("teamModal.save")}
+          </button>
+          <button
+            onClick={handleReset}
+            className="
+              focus:ring-green-500
+              d-flex align-items-center gap-2 
+              px-4 py-2 fw-medium rounded-3 shadow-sm 
+              border-0
+              text-white
+              bg-linear-to-r from-green-500 to-green-600
+              hover:shadow-lg hover:scale-105
+              transition-all duration-200
+            "
+          >
+            <RefreshCw size={18} />
+            {t("teamModal.reset")}
           </button>
         </Modal.Footer>
       </div>

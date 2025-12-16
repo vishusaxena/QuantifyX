@@ -240,3 +240,26 @@
   color: rgb(67, 63, 56) !important;
   cursor: not-allowed !important;
 }
+.custom-select {
+  font-size: 16px;
+  padding: 2px 16px 2px 16px;
+  border-radius: 8px;
+  background-color: #ffffff;
+  border-right: 16px solid transparent;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.5);
+  outline: none;
+  transition: all 150ms;
+  cursor: pointer;
+}
+.dark .custom-select {
+  background-color: #141b34;
+  color: #cbd5e1;
+}
+.blue .custom-select {
+  background-color: #282828;
+  color: #ffffff;
+}
+.custom-dialog {
+  margin-top: 20px;
+  margin-left: 80px;
+}

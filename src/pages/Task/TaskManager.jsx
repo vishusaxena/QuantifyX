@@ -1,12 +1,13 @@
 import React, { useEffect, useRef, useState } from "react";
-import TaskCard from "../components/TaskCard";
+import TaskCard from "../../components/TaskCard";
 import { useNavigate } from "react-router-dom";
-import DeleteConfirmModal from "../common-components/DeleteConfirmModal";
+import DeleteConfirmModal from "../../common-components/DeleteConfirmModal";
 import { toast } from "react-toastify";
-import { formatDate, formatDateWithTime } from "../utils/formatDate";
+import { formatDate, formatDateWithTime } from "../../utils/formatDate";
 import { Plus, Inbox, Eye } from "lucide-react";
-import { usedata } from "../context/dataContext";
+import { usedata } from "../../context/dataContext";
 import { useTranslation } from "react-i18next";
+import DropArea from "../../common-components/DropArea";
 
 const TaskManager = () => {
   const { currentUser } = usedata();
@@ -351,15 +352,19 @@ function TaskContainer({
       onDragOver={handleDragOver}
       onDrop={() => handleDrop(status)}
     >
+      {sortedTasks === 0 && (
+        <DropArea classes="h-20 mt-3" show={sortedTasks === 0} />
+      )}
       {sortedTasks
         .filter((task) => task.status === status)
         .map((task, index) => (
-          <span
-            key={index}
-            draggable
-            onDragStart={(e) => handleDragStart(e, task)}
-            onDragEnd={handleDragEnd}
-            className={`
+          <>
+            <span
+              key={index}
+              draggable
+              onDragStart={(e) => handleDragStart(e, task)}
+              onDragEnd={handleDragEnd}
+              className={`
               ${priorityColors[task.priority]}
               h-20 w-full snap-center rounded-2xl px-4 py-2
               shadow-md flex justify-between items-center
@@ -367,41 +372,45 @@ function TaskContainer({
               transition-all duration-300 
               hover:scale-[1.02] hover:shadow-lg 
               border border-white/40
-              mt-2 dark:text-white blue:text-white
+              mt-3 dark:text-white blue:text-white
             `}
-          >
-            <div className="flex flex-col gap-1">
-              <div className="flex gap-3 items-center ">
-                <span
-                  className={`
+            >
+              <div className="flex flex-col gap-1">
+                <div className="flex gap-3 items-center ">
+                  <span
+                    className={`
                   text-[10px] font-bold border px-3 py-0.5 w-fit
                   rounded-full shadow-sm ${badgeColors[task.priority]}
                 `}
-                >
-                  {task.priority.toUpperCase()}{" "}
+                  >
+                    {task.priority.toUpperCase()}{" "}
+                  </span>
+                  <Eye
+                    size={16}
+                    className="text-blue-500 cursor-pointer"
+                    onClick={() => onView(task)}
+                  />
+                </div>
+
+                <span className="text-sm font-semibold text-gray-800 dark:text-gray-200 blue:text-white">
+                  {task.taskName}
                 </span>
-                <Eye
-                  size={16}
-                  className="text-blue-500 cursor-pointer"
-                  onClick={() => onView(task)}
-                />
               </div>
 
-              <span className="text-sm font-semibold text-gray-800 dark:text-gray-200 blue:text-white">
-                {task.taskName}
-              </span>
-            </div>
-
-            <div className="text-[10px] opacity-70 flex flex-col gap-0.5  text-right">
-              <span>
-                {t("startDate")} : {formatDate(task.startDate)}
-              </span>
-              <span>
-                {t("endDate")} : {formatDate(task.endDate)}
-              </span>
-            </div>
-          </span>
+              <div className="text-[10px] opacity-70 flex flex-col gap-0.5  text-right">
+                <span>
+                  {t("startDate")} : {formatDate(task.startDate)}
+                </span>
+                <span>
+                  {t("endDate")} : {formatDate(task.endDate)}
+                </span>
+              </div>
+            </span>
+          </>
         ))}
+      {sortedTasks.length !== 0 && (
+        <DropArea classes="h-20 mt-3" show={sortedTasks.length !== 0} />
+      )}
     </div>
   );
 }
@@ -422,10 +431,10 @@ export function TaskDetailsModal({ selectedTask, onClose, t }) {
   };
 
   return (
-    <div className="fixed inset-0 bg-black/50 backdrop-blur-xs flex justify-center items-center z-50 lg:p-0 md:px-2 px-2">
+    <div className="fixed inset-0 bg-black/50 backdrop-blur-xs flex justify-end items-center z-50 lg:p-0 md:px-2 px-2">
       <div
         className="light:bg-white dark:bg-[#141b34] blue:bg-[#282828] dark:text-white blue:text-white 
-        rounded-xl p-6 w-[850px] lg:h-[550px]  h-[450px] shadow-2xl relative overflow-hidden border border-gray-200/30"
+        rounded-xl p-6 w-[850px] lg:h-[550px]  h-[450px] shadow-2xl relative  border border-gray-200/30 mr-40"
       >
         <div className="flex items-center justify-between mb-4">
           <div className="text-xl font-semibold tracking-wide">

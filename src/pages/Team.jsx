@@ -8,6 +8,7 @@ import { exportTableToExcel } from "../utils/excelconvertor";
 import DeleteConfirmModal from "../common-components/DeleteConfirmModal";
 import { currentDate } from "../components/TeamModal";
 import { useTranslation } from "react-i18next";
+import { toast } from "react-toastify";
 const Team = () => {
   const LOCAL_KEY = "teamDataLocal";
   const [isTeamModalOpen, setIsTeamModalOpen] = useState(false);
@@ -56,6 +57,7 @@ const Team = () => {
         Data: [newTeam, ...prev.Data],
       };
     });
+    toast.success("Team added successfully !");
   };
 
   const openForEdit = (row) => {
@@ -91,6 +93,7 @@ const Team = () => {
 
       return { ...prev, Data: newData };
     });
+    toast.success("Team updated successfully !");
   };
 
   const deleteTeam = (SrNo) => {
@@ -108,6 +111,7 @@ const Team = () => {
         Data: rebuilt,
       };
     });
+    toast.success("Team deleted successfully !");
   };
 
   const resetTeam = () => {

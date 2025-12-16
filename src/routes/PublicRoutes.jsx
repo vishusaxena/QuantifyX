@@ -1,11 +1,16 @@
 import React from "react";
 import { usedata } from "../context/dataContext";
-import { Navigate } from "react-router-dom";
+import { Navigate, useLocation } from "react-router-dom";
 
 const PublicRoutes = ({ children }) => {
   const { currentUser } = usedata();
+  const location = useLocation();
 
-  if (currentUser) {
+  if (
+    currentUser &&
+    location.pathname !== "/login" &&
+    location.pathname !== "/register"
+  ) {
     return <Navigate to="/" replace />;
   }
 
